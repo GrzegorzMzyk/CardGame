@@ -25,7 +25,7 @@ struct CardGameApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CardView()
         }
         .modelContainer(sharedModelContainer)
     }
