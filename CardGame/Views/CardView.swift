@@ -21,11 +21,14 @@ struct CardView: View {
     
     var body: some View {
         NavigationStack {
-            
+             let punishment = myQuestions.punishment
+            let points = myQuestions.points
             VStack{
                 Text(myQuestions.question)
                     .font(.largeTitle)
                     .bold()
+                Text("\(punishment)")
+                Text("\(points)")
                      }
         }
         .navigationTitle("Card Game")
