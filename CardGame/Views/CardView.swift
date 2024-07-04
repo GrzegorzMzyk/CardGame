@@ -6,18 +6,27 @@
 //
 
 import SwiftUI
-
+struct Questions: Identifiable {
+    let id: String = UUID().uuidString
+    let question: String
+    let punishment: Int
+    let points: Int
+    }
 struct CardView: View {
+    
+    var myQuestions: Questions =
+        Questions(question: "Wypowiedz imię osoby z którą uprawiałeś seks", punishment: 2, points: 1)
+   
+        
+    
     var body: some View {
-       
         NavigationStack {
             
             VStack{
-                Text("gdsf")
+                Text(myQuestions.question)
                     .font(.largeTitle)
                     .bold()
-            }
-           
+                     }
         }
         .navigationTitle("Card Game")
         .navigationBarTitleDisplayMode(.large)
