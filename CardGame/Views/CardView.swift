@@ -6,16 +6,10 @@
 //
 
 import SwiftUI
-struct Questions: Identifiable {
-    let id: String = UUID().uuidString
-    let question: String
-    let punishment: Int
-    let points: Int
-    }
 struct CardView: View {
     
     var myQuestions: Questions =
-        Questions(question: "Wypowiedz imię osoby z którą uprawiałeś seks", punishment: 2, points: 1)
+        Questions(question: "pytanie 1", punishment: 2, points: 1)
    
         
     
