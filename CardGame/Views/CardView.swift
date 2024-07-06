@@ -7,22 +7,22 @@
 
 import SwiftUI
 struct CardView: View {
+//    @EnvironmentObject private var QD: QuestionViewModel
+//    var myQuestions: Questions =
+//        Questions(question: "pytanie 1", punishment: 2, points: 1)
     
-    var myQuestions: Questions =
-        Questions(question: "pytanie 1", punishment: 2, points: 1)
-   
-        
+    var questions: Questions =
+    Questions(id: "qqq", question: "pytanie 1", punishment: 2, points: 1)
+    
     
     var body: some View {
         NavigationStack {
-             let punishment = myQuestions.punishment
-            let points = myQuestions.points
+            
+           
             VStack{
-                Text(myQuestions.question)
-                    .font(.largeTitle)
-                    .bold()
-                Text("\(punishment)")
-                Text("\(points)")
+                Text(questions.id)
+              
+                
                      }
         }
         .navigationTitle("Card Game")
@@ -34,4 +34,6 @@ struct CardView: View {
 
 #Preview {
     CardView()
+     
+        
 }
