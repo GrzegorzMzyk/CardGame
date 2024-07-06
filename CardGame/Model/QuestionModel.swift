@@ -19,6 +19,8 @@ import Observation
         self.question = question
         self.punishment = punishment
         self.points = points
+        
     }
+        
     
     }

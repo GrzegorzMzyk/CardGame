@@ -7,8 +7,4 @@
 
 import Foundation
 import SwiftUI
-class QuestionData {
- 
-    
 
-}

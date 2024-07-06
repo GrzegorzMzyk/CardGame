@@ -11,11 +11,14 @@ struct CardView: View {
 //    var myQuestions: Questions =
 //        Questions(question: "pytanie 1", punishment: 2, points: 1)
     
+    
     var questions: Questions =
     Questions(id: "qqq", question: "pytanie 1", punishment: 2, points: 1)
-    
+
     
     var body: some View {
+    
+        
         NavigationStack {
             
            
