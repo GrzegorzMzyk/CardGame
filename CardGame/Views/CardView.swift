@@ -12,21 +12,17 @@ struct CardView: View {
 //        Questions(question: "pytanie 1", punishment: 2, points: 1)
     
     
-    var questions: Questions =
-    Questions(id: "qqq", question: "pytanie 1", punishment: 2, points: 1)
-
-    
+   
+    let somevalue = questionsClass()
     var body: some View {
     
         
+        let value = somevalue.pytanie11.question
         NavigationStack {
             
-           
-            VStack{
-                Text(questions.id)
-              
-                
-                     }
+           VStack {
+              Text(value)
+                   }
         }
         .navigationTitle("Card Game")
         .navigationBarTitleDisplayMode(.large)
