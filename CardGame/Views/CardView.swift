@@ -7,23 +7,28 @@
 
 import SwiftUI
 struct CardView: View {
-//    @EnvironmentObject private var QD: QuestionViewModel
-//    var myQuestions: Questions =
-//        Questions(question: "pytanie 1", punishment: 2, points: 1)
-    
-    
-   
-    let somevalue = questionsClass()
+
+    let questionCard = questionsClass()
     var body: some View {
     
         
-      var value = somevalue.pytanie11.question
-        
+        let ask = questionCard.question1.question
+        let points = questionCard.question1.points
+        let punishment = questionCard.question1.punishment
         NavigationStack {
             
            VStack {
-              Text(value)
+              Text ("Pytanie: \(ask)")
+               Text("Punkty: \(points.description)")
+               Text("Shoty: \(punishment.description)")
                    }
+                Button(action: {
+                let ask2 = ask.startIndex
+                
+            }, label: {
+                Text("Następne pytanie")
+            })
+            
         }
         .navigationTitle("Card Game")
         .navigationBarTitleDisplayMode(.large)
