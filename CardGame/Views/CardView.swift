@@ -17,7 +17,8 @@ struct CardView: View {
     var body: some View {
     
         
-        let value = somevalue.pytanie11.question
+      var value = somevalue.pytanie11.question
+        
         NavigationStack {
             
            VStack {
@@ -30,6 +31,7 @@ struct CardView: View {
         
     }
 }
+
 
 #Preview {
     CardView()
