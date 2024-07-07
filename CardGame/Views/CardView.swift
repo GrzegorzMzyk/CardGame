@@ -23,7 +23,7 @@ struct CardView: View {
                Text("Shoty: \(punishment.description)")
                    }
                 Button(action: {
-                let ask2 = ask.startIndex
+            
                 
             }, label: {
                 Text("Następne pytanie")
