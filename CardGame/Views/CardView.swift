@@ -7,38 +7,24 @@
 
 import SwiftUI
 struct CardView: View {
-
+    
+    
+    
 
     var body: some View {
-            let randomQuestion = quesstionClass.randomElement() ?? Questions(question: "", punishment: 0, points: 0)
-    
+        
         
         NavigationStack {
-            
-            VStack {
-                Spacer()
-                Text (randomQuestion.question)
-                Text(randomQuestion.points.description)
-                Text(randomQuestion.punishment.description)
-                Spacer()
-                HStack {
-
-                }
+            NavigationLink {
+                QuestionViewModels()
+            } label: {
+               Text("gfd")
             }
+
            
-                Button(action: {
-                   
-             
-                
-            }, label: {
-                Text("Następne pytanie")
-            })
             
         }
-        .navigationTitle("Card Game")
-        .navigationBarTitleDisplayMode(.large)
-        .background(Color.gray)
-        
+
     }
 
 }
@@ -46,6 +32,4 @@ struct CardView: View {
 
 #Preview {
     CardView()
-     
-        
 }
