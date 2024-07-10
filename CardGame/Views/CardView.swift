@@ -8,22 +8,27 @@
 import SwiftUI
 struct CardView: View {
 
-    let questionCard = questionsClass()
+
     var body: some View {
+            let randomQuestion = quesstionClass.randomElement() ?? Questions(question: "", punishment: 0, points: 0)
     
         
-        let ask = questionCard.question1.question
-        let points = questionCard.question1.points
-        let punishment = questionCard.question1.punishment
         NavigationStack {
             
-           VStack {
-              Text ("Pytanie: \(ask)")
-               Text("Punkty: \(points.description)")
-               Text("Shoty: \(punishment.description)")
-                   }
+            VStack {
+                Spacer()
+                Text (randomQuestion.question)
+                Text(randomQuestion.points.description)
+                Text(randomQuestion.punishment.description)
+                Spacer()
+                HStack {
+
+                }
+            }
+           
                 Button(action: {
-            
+                   
+             
                 
             }, label: {
                 Text("Następne pytanie")
@@ -35,6 +40,7 @@ struct CardView: View {
         .background(Color.gray)
         
     }
+
 }
 
 
