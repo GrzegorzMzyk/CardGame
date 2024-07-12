@@ -12,22 +12,24 @@ struct CardView: View {
     
 
     var body: some View {
-        
-        
         NavigationStack {
-            NavigationLink {
+            NavigationLink("Kolejne Pytanie") {
                 QuestionViewModels()
-            } label: {
-               Text("gfd")
             }
-
-           
+  
+            }
             
+            .ignoresSafeArea()
+            .navigationTitle("Card Game")
+            .navigationBarTitleDisplayMode(.automatic)
+            
+        
+       
         }
 
     }
 
-}
+
 
 
 #Preview {
