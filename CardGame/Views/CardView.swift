@@ -7,39 +7,31 @@
 
 import SwiftUI
 struct CardView: View {
-
-    let questionCard = questionsClass()
-    var body: some View {
     
-        
-        let ask = questionCard.question1.question
-        let points = questionCard.question1.points
-        let punishment = questionCard.question1.punishment
+    
+    
+
+    var body: some View {
         NavigationStack {
+            NavigationLink("Kolejne Pytanie") {
+                QuestionViewModels()
+            }
+  
+            }
             
-           VStack {
-              Text ("Pytanie: \(ask)")
-               Text("Punkty: \(points.description)")
-               Text("Shoty: \(punishment.description)")
-                   }
-                Button(action: {
-                let ask2 = ask.startIndex
-                
-            }, label: {
-                Text("Następne pytanie")
-            })
+            .ignoresSafeArea()
+            .navigationTitle("Card Game")
+            .navigationBarTitleDisplayMode(.automatic)
             
-        }
-        .navigationTitle("Card Game")
-        .navigationBarTitleDisplayMode(.large)
-        .background(Color.gray)
         
+       
+        }
+
     }
-}
+
+
 
 
 #Preview {
     CardView()
-     
-        
 }
