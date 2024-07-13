@@ -6,25 +6,31 @@
 //
 
 import SwiftUI
-
 struct CardView: View {
+    
+    
+    
+
     var body: some View {
-       
         NavigationStack {
-            
-            VStack{
-                Text("gdsf")
-                    .font(.largeTitle)
-                    .bold()
+            NavigationLink("Kolejne Pytanie") {
+                QuestionViewModels()
             }
-           
-        }
-        .navigationTitle("Card Game")
-        .navigationBarTitleDisplayMode(.large)
-        .background(Color.gray)
+  
+            }
+            
+            .ignoresSafeArea()
+            .navigationTitle("Card Game")
+            .navigationBarTitleDisplayMode(.automatic)
+            
         
+       
+        }
+
     }
-}
+
+
+
 
 #Preview {
     CardView()
