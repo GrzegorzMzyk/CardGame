@@ -7,12 +7,8 @@
 
 import SwiftUI
 
-struct UserViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-#Preview {
-    UserViewModel()
+struct UserModel: Identifiable {
+    let id: String = UUID().uuidString
+    let userName: String
+    let points: Int
 }

@@ -8,12 +8,6 @@
 import Foundation
 import Observation
 
-struct UserModel: Identifiable {
-    let id: String = UUID().uuidString
-    let userName: String
-    let points: Int
-}
-
 @Observable class Questions {
 
     var  question: String
