@@ -13,15 +13,23 @@ struct CardView: View {
 
     var body: some View {
         NavigationStack {
+            List{
+                    Text("user")
+                    Text("user")
+                    Text("user")
+                    Text("user")
+                }
+            
             NavigationLink("Kolejne Pytanie") {
                 QuestionViewModels()
             }
-  
-            }
-            
+            Spacer()
             .ignoresSafeArea()
             .navigationTitle("Card Game")
             .navigationBarTitleDisplayMode(.automatic)
+            }
+            
+         
             
         
        
