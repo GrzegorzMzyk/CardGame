@@ -12,7 +12,7 @@ struct QuestionViewModels: View {
     @State var randomQuestion: Questions = Questions(question: "", punishment: 0, points: 0)
     
     var body: some View {
-        Button("Losuj wyzwanie") {
+        Button("Losuj wyzwanie!") {
             randomQuestion =  quesstionClass.randomElement() ?? Questions(question: "", punishment: 0, points: 0)
         }
         
