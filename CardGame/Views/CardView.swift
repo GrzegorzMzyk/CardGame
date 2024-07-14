@@ -16,7 +16,7 @@ struct CardView: View {
             
             UserViewModel()
             
-            NavigationLink("Kolejne Pytanie") {
+            NavigationLink("START") {
                 QuestionViewModels()
             }
             Spacer()
