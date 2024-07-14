@@ -9,11 +9,8 @@ import SwiftUI
 
 
 struct UserViewModel: View {
-    
-    @State var users: [UserModel] = [
-        UserModel(userName: "grmzy", points: 0),
-        UserModel(userName: "fff", points: 1)
-    ]
+    @State var addUser: String = ""
+    @State var users: [UserModel] = []
     
     var body: some View {
         
@@ -26,6 +23,9 @@ struct UserViewModel: View {
                         Text(user.points.description)
                     }
                 }
+                .onDelete(perform: delete)
+                .onMove(perform: move)
+                    
             }
         header: {
             HStack {
@@ -35,10 +35,37 @@ struct UserViewModel: View {
             }
             .font(.subheadline)
         }
-        
-            
         }
         .listStyle(.sidebar)
+        
+        HStack(){
+            TextField("Nowy user", text: $addUser)
+            Image(systemName: "plus")
+                .onTapGesture {
+                    add()
+                    addUser = ""
+                }
+                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+        }
+        .padding()
+        .background(Color.gray)
+        .clipShape(RoundedRectangle(cornerRadius: 15.0))
+        .padding()
     }
-   
+    
+ 
+          
+    
+}
+
+extension UserViewModel {
+    func add() {
+      users.append(UserModel(userName:addUser, points: 0))
+  }
+    func delete(indexSet: IndexSet) {
+        users.remove(atOffsets: indexSet)
+    }
+    func move(indices: IndexSet, newOffset: Int) {
+        users.move(fromOffsets: indices, toOffset: newOffset)
+    }
 }

@@ -7,9 +7,7 @@
 
 import SwiftUI
 struct CardView: View {
-    
-    
-    
+    @Binding var addUser: String
 
     var body: some View {
         NavigationStack {
@@ -23,11 +21,14 @@ struct CardView: View {
             .ignoresSafeArea()
             .navigationTitle("Card Game")
             .navigationBarTitleDisplayMode(.automatic)
+            .toolbar(content: {
+                Image(systemName: "plus")
+                    .onTapGesture {
+                        UserViewModel().add()
+                        addUser = ""
+                    }
+            })
             }
-            
-         
-            
-        
        
         }
 
