@@ -13,12 +13,8 @@ struct CardView: View {
 
     var body: some View {
         NavigationStack {
-            List{
-                    Text("user")
-                    Text("user")
-                    Text("user")
-                    Text("user")
-                }
+            
+            UserViewModel()
             
             NavigationLink("Kolejne Pytanie") {
                 QuestionViewModels()
@@ -43,3 +39,5 @@ struct CardView: View {
 #Preview {
     CardView()
 }
+
+
