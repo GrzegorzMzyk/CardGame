@@ -11,7 +11,7 @@ import SwiftUI
 struct UserViewModel: View {
     @State var addUser: String = ""
     @State var users: [UserModel] = []
-    
+    @Binding var points: Int
     var body: some View {
         
         List {
@@ -21,6 +21,7 @@ struct UserViewModel: View {
                         Text(user.userName)
                         Spacer()
                         Text(user.points.description)
+                        Text(points.description)
                     }
                 }
                 .onDelete(perform: delete)
@@ -52,10 +53,6 @@ struct UserViewModel: View {
         .clipShape(RoundedRectangle(cornerRadius: 15.0))
         .padding()
     }
-    
- 
-          
-    
 }
 
 extension UserViewModel {

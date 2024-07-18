@@ -8,11 +8,12 @@
 import SwiftUI
 struct CardView: View {
     @Binding var addUser: String
+    @Binding var points: Int
 
     var body: some View {
         NavigationStack {
             
-            UserViewModel()
+            UserViewModel(points: $points)
             
             NavigationLink("START") {
                 QuestionViewModels()
@@ -24,7 +25,7 @@ struct CardView: View {
             .toolbar(content: {
                 Image(systemName: "plus")
                     .onTapGesture {
-                        UserViewModel().add()
+                        UserViewModel(points: $points).add()
                         addUser = ""
                     }
             })
@@ -38,7 +39,7 @@ struct CardView: View {
 
 
 #Preview {
-    CardView(addUser: .constant("error"))
+    CardView(addUser: .constant("error"), points: .constant(0))
 }
 
 

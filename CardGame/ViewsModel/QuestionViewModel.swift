@@ -9,8 +9,8 @@ import SwiftUI
 
 struct QuestionViewModels: View {
     
-    @State var randomQuestion: Questions = Questions(question: "", punishment: 0, points: 0)
-    
+    @State var randomQuestion: Questions = Questions(question: "Pytanie", punishment: 0, points: 0)
+    @State var punkty: Int = 0
     var body: some View {
         
         
@@ -27,10 +27,16 @@ struct QuestionViewModels: View {
         HStack(alignment:.center) {
             Group {
                 Circle()
-                    .fill(Color(.blue))
+                    .fill(Color(.red))
                     .frame(width: 70, height: 70)
                     .overlay {
-                        Text(randomQuestion.points.description)
+                        Menu(randomQuestion.points.description) {
+                            Button("ggg") {
+                                punkty = randomQuestion.points + 1
+                            }
+                        }
+                        
+                        
                     }
                 Circle()
                     .fill(Color(.blue))
@@ -49,7 +55,7 @@ struct QuestionViewModels: View {
         
         Button("Losuj pytanie")
         {
-            randomQuestion =  quesstionClass.randomElement() ?? Questions(question: "", punishment: 0, points: 0)
+            randomQuestion =  quesstionClass.randomElement() ?? randomQuestion
         }
         .buttonStyle(PlainButtonStyle.plain)
         

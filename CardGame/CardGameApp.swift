@@ -25,7 +25,7 @@ struct CardGameApp: App {
 
     var body: some Scene {
         WindowGroup {
-            CardView(addUser: .constant("error"))
+            CardView(addUser: .constant("error"), points: .constant(0))
         }
         .modelContainer(sharedModelContainer)
     }
