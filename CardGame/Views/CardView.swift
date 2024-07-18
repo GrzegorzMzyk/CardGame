@@ -38,7 +38,7 @@ struct CardView: View {
 
 
 #Preview {
-    CardView()
+    CardView(addUser: .constant("error"))
 }
 
 
