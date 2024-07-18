@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		193166CD2C42F3DE00FCE297 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193166CC2C42F3DE00FCE297 /* UserViewModel.swift */; };
+		193166CF2C43D7E300FCE297 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193166CE2C43D7E300FCE297 /* UserModel.swift */; };
 		196C48E62C3E806E00FEBFF7 /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196C48E52C3E806E00FEBFF7 /* QuestionViewModel.swift */; };
 		1986981E2C35DFAA00D94F58 /* CardGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986981D2C35DFAA00D94F58 /* CardGameApp.swift */; };
 		198698222C35DFAA00D94F58 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198698212C35DFAA00D94F58 /* Item.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		193166CC2C42F3DE00FCE297 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		193166CE2C43D7E300FCE297 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		196C48E52C3E806E00FEBFF7 /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
 		1986981A2C35DFAA00D94F58 /* CardGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1986981D2C35DFAA00D94F58 /* CardGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameApp.swift; sourceTree = "<group>"; };
@@ -91,6 +95,7 @@
 			children = (
 				198698352C36A65A00D94F58 /* QuestionModel.swift */,
 				198698372C36A84300D94F58 /* QuestionData.swift */,
+				193166CE2C43D7E300FCE297 /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -99,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				196C48E52C3E806E00FEBFF7 /* QuestionViewModel.swift */,
+				193166CC2C42F3DE00FCE297 /* UserViewModel.swift */,
 			);
 			path = ViewsModel;
 			sourceTree = "<group>";
@@ -175,9 +181,11 @@
 			files = (
 				198698222C35DFAA00D94F58 /* Item.swift in Sources */,
 				1986982E2C35DFC900D94F58 /* CardView.swift in Sources */,
+				193166CF2C43D7E300FCE297 /* UserModel.swift in Sources */,
 				198698382C36A84300D94F58 /* QuestionData.swift in Sources */,
 				1986981E2C35DFAA00D94F58 /* CardGameApp.swift in Sources */,
 				196C48E62C3E806E00FEBFF7 /* QuestionViewModel.swift in Sources */,
+				193166CD2C42F3DE00FCE297 /* UserViewModel.swift in Sources */,
 				198698362C36A65A00D94F58 /* QuestionModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
