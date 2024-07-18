@@ -10,22 +10,25 @@ import SwiftUI
 
 struct UserViewModel: View {
     @State var addUser: String = ""
-    @State var users: [UserModel] = []
-    @Binding var points: Int
+     var users: UserModel
+//    @State var point: Int = 0
+    @State var userek: [UserModel] = [UserModel(userName: "", userPoints: 0)]
+
     var body: some View {
         
         List {
             Section {
-                ForEach(users) { user in
+                ForEach(userek) { user in
                     HStack {
                         Text(user.userName)
                         Spacer()
-                        Text(user.points.description)
-                        Text(points.description)
+                     
+                        Text(user.userPoints.description)
+                        
                     }
                 }
-                .onDelete(perform: delete)
-                .onMove(perform: move)
+//                .onDelete(perform: delete)
+//                .onMove(perform: move)
                     
             }
         header: {
@@ -43,8 +46,7 @@ struct UserViewModel: View {
             TextField("Nowy user", text: $addUser)
             Image(systemName: "plus")
                 .onTapGesture {
-                    add()
-                    addUser = ""
+                   
                 }
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
         }
@@ -56,13 +58,15 @@ struct UserViewModel: View {
 }
 
 extension UserViewModel {
-    func add() {
-      users.append(UserModel(userName:addUser, points: 0))
+    mutating func add() {
+        userek.append( UserModel(userName: addUser, userPoints: 0 ))
+       
+  
   }
-    func delete(indexSet: IndexSet) {
-        users.remove(atOffsets: indexSet)
+    mutating func delete(indexSet: IndexSet) {
+        userek.remove(atOffsets: indexSet)
     }
-    func move(indices: IndexSet, newOffset: Int) {
-        users.move(fromOffsets: indices, toOffset: newOffset)
+    mutating func move(indices: IndexSet, newOffset: Int) {
+        userek.move(fromOffsets: indices, toOffset: newOffset)
     }
 }

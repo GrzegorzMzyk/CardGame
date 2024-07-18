@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct QuestionViewModels: View {
+
+    var randomQuestion: Questions
+    var users: UserModel
     
-    @State var randomQuestion: Questions = Questions(question: "Pytanie", punishment: 0, points: 0)
-    @State var punkty: Int = 0
     var body: some View {
         
         
@@ -31,9 +32,7 @@ struct QuestionViewModels: View {
                     .frame(width: 70, height: 70)
                     .overlay {
                         Menu(randomQuestion.points.description) {
-                            Button("ggg") {
-                                punkty = randomQuestion.points + 1
-                            }
+                            Text(users.userName)
                         }
                         
                         
@@ -53,9 +52,8 @@ struct QuestionViewModels: View {
         
         Spacer()
         
-        Button("Losuj pytanie")
-        {
-            randomQuestion =  quesstionClass.randomElement() ?? randomQuestion
+        Button("Losuj pytanie") {
+          let randomQuestion =  quesstionClass.randomElement() ??  Questions(question: "Error", punishment: 0, points: 0)
         }
         .buttonStyle(PlainButtonStyle.plain)
         
@@ -64,6 +62,4 @@ struct QuestionViewModels: View {
     }
 
 
-#Preview {
-    QuestionViewModels()
-}
+

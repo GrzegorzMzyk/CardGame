@@ -7,14 +7,24 @@
 
 import Foundation
 
-struct UserModel: Identifiable {
-    let id: String = UUID().uuidString
+//struct UserModel: Identifiable {
+//    let id: String = UUID().uuidString
+//    let userName: String
+//    let points: Int
+//    
+//    init(userName: String, points: Int) {
+//        self.userName = userName
+//        self.points = points
+//    }
+//}
+import Observation
+
+@Observable class UserModel: Identifiable {
     let userName: String
-    let points: Int
+    let userPoints: Int
     
-    init(userName: String, points: Int) {
+    init(userName: String, userPoints: Int) {
         self.userName = userName
-        self.points = points
+        self.userPoints = userPoints
     }
 }
-
