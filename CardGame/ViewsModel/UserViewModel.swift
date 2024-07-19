@@ -12,7 +12,8 @@ struct UserViewModel: View {
     
     @State var addUser: String = ""
     @State var userek: [UserModel] = [UserModel(userName: "", userPoints: 0)]
-
+    @State  var randomQuestion: Questions = Questions(question: "puste", punishment: 0, points: 0)
+    
     var body: some View {
         
         List {

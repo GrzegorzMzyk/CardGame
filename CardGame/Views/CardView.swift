@@ -7,32 +7,29 @@
 
 import SwiftUI
 struct CardView: View {
+    var cardView: UserViewModel = UserViewModel()
+
     
-  
-//    @Binding var addUser: String
-    @Binding var points: Int
-    @Binding var users: UserModel
+   
     @Binding var randomQuestion: Questions
-    @Binding var userek: [UserModel]
+    @Binding var userek: UserModel
     var body: some View {
         NavigationStack {
-            
             UserViewModel()
             
             NavigationLink("START") {
-                QuestionViewModels(randomQuestion: randomQuestion, users: users)
+                QuestionViewModels(randomQuestion: $randomQuestion, userek: $userek)
             }
             Spacer()
             .ignoresSafeArea()
             .navigationTitle("Card Game")
             .navigationBarTitleDisplayMode(.automatic)
-//            .toolbar(content: {
-//                Image(systemName: "plus")
-//                    .onTapGesture {
-//                        UserViewModel(points: points).add()
-//                        
-//                    }
-//            })
+            .toolbar(content: {
+                Image(systemName: "plus")
+                    .onTapGesture {
+                        
+                    }})
+
             }
        
         }
@@ -43,7 +40,9 @@ struct CardView: View {
 
 
 #Preview {
-    CardView(points: .constant(9999), users: .constant(UserModel(userName: "", userPoints: 0)), randomQuestion: .constant(Questions(question: "", punishment: 998, points: 976)), userek: .constant([UserModel(userName: "", userPoints: 0)]))
+    CardView(randomQuestion: .constant(Questions(question: "qqqqq", punishment: 0, points: 0)), userek: .constant(UserModel(userName: "qre", userPoints: 0)))
+    
+//    CardView(points: .constant(9999), users: .constant(UserModel(userName: "", userPoints: 0)), randomQuestion: .constant(Questions(question: "", punishment: 998, points: 976)), userek: .constant([UserModel(userName: "", userPoints: 0)]))
 }
 
 

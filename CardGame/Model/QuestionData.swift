@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 
-var quesstionClass: [Questions]  = [
+ var quesstionClass: [Questions]  = [
     Questions( question: "Wypowiedz imię osoby z którą ostatnio uprawiał_ś sex.", punishment: 2, points: 1),
     Questions( question: "Masz szczęście! Wskaż jednego gracza, który musi wypić kolejkę. Jeśli tego nie zrobi odpada z gry", punishment: 2, points: 2),
     Questions( question: "Zrób selfie i umieść je na Instagramie z podpisem: Napisz do mnie jeśli Ty też jestś wilgotn_! ", punishment: 1, points: 1),
