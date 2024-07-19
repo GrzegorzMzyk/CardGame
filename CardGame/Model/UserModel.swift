@@ -18,6 +18,7 @@ import Observation
         self.userName = userName
         self.userPoints = userPoints
     }
+   
         
     }
 
