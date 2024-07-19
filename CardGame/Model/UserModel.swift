@@ -20,11 +20,14 @@ import Foundation
 import Observation
 
 @Observable class UserModel: Identifiable {
-    let userName: String
-    let userPoints: Int
+    
+    var userName: String
+    var userPoints: Int
     
     init(userName: String, userPoints: Int) {
         self.userName = userName
         self.userPoints = userPoints
     }
-}
+        
+    }
+

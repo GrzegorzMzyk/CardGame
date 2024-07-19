@@ -7,6 +7,8 @@
 
 import SwiftUI
 struct CardView: View {
+    
+  
 //    @Binding var addUser: String
     @Binding var points: Int
     @Binding var users: UserModel
@@ -15,7 +17,7 @@ struct CardView: View {
     var body: some View {
         NavigationStack {
             
-            UserViewModel(users: users, userek: userek)
+            UserViewModel()
             
             NavigationLink("START") {
                 QuestionViewModels(randomQuestion: randomQuestion, users: users)
