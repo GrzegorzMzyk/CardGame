@@ -6,13 +6,12 @@
 //
 
 import SwiftUI
-struct CardView: View {
-    var cardView: UserViewModel = UserViewModel()
 
+struct CardView: View {
     
-   
-    @Binding var randomQuestion: Questions
-    @Binding var userek: UserModel
+    var cardView: UserViewModel = UserViewModel()
+    @State var randomQuestion: Questions = Questions(question: "", punishment: 0, points: 0)
+    @State var userek: UserModel = UserModel(userName: "", userPoints: 0)
     var body: some View {
         NavigationStack {
             UserViewModel()
@@ -29,8 +28,11 @@ struct CardView: View {
                 })
 
             }
+        .environment(randomQuestion)
        
         }
+       
+        
 
     }
 
@@ -38,7 +40,7 @@ struct CardView: View {
 
 
 #Preview {
-    CardView(randomQuestion: .constant(Questions(question: "qqqqq", punishment: 0, points: 0)), userek: .constant(UserModel(userName: "qre", userPoints: 0)))
+    CardView()
     
 //    CardView(points: .constant(9999), users: .constant(UserModel(userName: "", userPoints: 0)), randomQuestion: .constant(Questions(question: "", punishment: 998, points: 976)), userek: .constant([UserModel(userName: "", userPoints: 0)]))
 }

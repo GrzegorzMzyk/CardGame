@@ -17,6 +17,7 @@
 		1986982E2C35DFC900D94F58 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986982D2C35DFC900D94F58 /* CardView.swift */; };
 		198698362C36A65A00D94F58 /* QuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198698352C36A65A00D94F58 /* QuestionModel.swift */; };
 		198698382C36A84300D94F58 /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198698372C36A84300D94F58 /* QuestionData.swift */; };
+		19BAD4982C6A2454002B2D2C /* UserSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BAD4972C6A2454002B2D2C /* UserSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		1986982D2C35DFC900D94F58 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		198698352C36A65A00D94F58 /* QuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionModel.swift; sourceTree = "<group>"; };
 		198698372C36A84300D94F58 /* QuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
+		19BAD4972C6A2454002B2D2C /* UserSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				1986982D2C35DFC900D94F58 /* CardView.swift */,
+				19BAD4972C6A2454002B2D2C /* UserSheet.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				1986981E2C35DFAA00D94F58 /* CardGameApp.swift in Sources */,
 				196C48E62C3E806E00FEBFF7 /* QuestionViewModel.swift in Sources */,
 				193166CD2C42F3DE00FCE297 /* UserViewModel.swift in Sources */,
+				19BAD4982C6A2454002B2D2C /* UserSheet.swift in Sources */,
 				198698362C36A65A00D94F58 /* QuestionModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,7 +11,7 @@ struct QuestionViewModels: View {
 
     @Binding var randomQuestion: Questions
     @Binding var userek: UserModel
-    
+   
     var body: some View {
         
         
@@ -32,7 +32,10 @@ struct QuestionViewModels: View {
                     .frame(width: 70, height: 70)
                     .overlay {
                         Menu(randomQuestion.points.description) {
-                            Text(userek.userName)
+                                Text("fsa")
+                                Text("dsfasd")
+                            
+                        
                         }
                         
                         
