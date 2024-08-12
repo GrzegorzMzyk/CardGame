@@ -25,10 +25,8 @@ struct CardView: View {
             .navigationTitle("Card Game")
             .navigationBarTitleDisplayMode(.automatic)
             .toolbar(content: {
-                Image(systemName: "plus")
-                    .onTapGesture {
-                        
-                    }})
+                EditButton()
+                })
 
             }
        

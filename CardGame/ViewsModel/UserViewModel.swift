@@ -22,14 +22,11 @@ struct UserViewModel: View {
                     HStack {
                         Text(user.userName)
                         Spacer()
-                     
                         Text(user.userPoints.description)
-                        
                     }
                 }
                 .onDelete(perform: delete)
                 .onMove(perform: move)
-                    
             }
         header: {
             HStack {
@@ -44,27 +41,42 @@ struct UserViewModel: View {
         
         HStack(){
             TextField("Nowy user", text: $addUser)
-            Image(systemName: "plus")
-                .onTapGesture {
-                   add()
-                }
                 .font(.title)
         }
-        .padding()
-        .background(Color.gray)
-        .clipShape(RoundedRectangle(cornerRadius: 15.0))
-        .padding()
+        Button(action: {
+            if textIsAppropriate() {
+                add()
+            }
+        }, label: {
+            Text("Save".uppercased())
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(textIsAppropriate() ? Color.blue : Color.gray)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .foregroundStyle(Color.white)
+            .font(.headline)
+        })
+        .disabled(!textIsAppropriate())
+    
     }
 }
 
 extension UserViewModel {
 func add() {
     userek.append(UserModel(userName: addUser, userPoints: 0))
+    addUser = ""
   }
    func delete(indexSet: IndexSet) {
         userek.remove(atOffsets: indexSet)
     }
    func move(indices: IndexSet, newOffset: Int) {
         userek.move(fromOffsets: indices, toOffset: newOffset)
+    }
+    func textIsAppropriate() -> Bool {
+        // check text
+        if addUser.count >= 3 {
+            return true
+        }
+        return false
     }
 }
