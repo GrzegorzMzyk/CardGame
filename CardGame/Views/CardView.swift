@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct CardView: View {
-    
     var cardView: UserViewModel = UserViewModel()
+    @State var showUsers:Bool = false
     @State var randomQuestion: Questions = Questions(question: "", punishment: 0, points: 0)
     @State var userek: UserModel = UserModel(userName: "", userPoints: 0)
     var body: some View {
         NavigationStack {
             UserViewModel()
+          
             
             NavigationLink("START") {
                 QuestionViewModels(randomQuestion: $randomQuestion, userek: $userek)
@@ -25,7 +26,19 @@ struct CardView: View {
             .navigationBarTitleDisplayMode(.automatic)
             .toolbar(content: {
                 EditButton()
+                Button(action: {
+                    showUsers.toggle()
+                }, label: {
+                    Text("Users")
                 })
+                .sheet(isPresented: $showUsers, content: {
+                    // nie dodawac tu if else ...
+                    UserSheet()
+                })
+                }
+            
+            )
+            
 
             }
         .environment(randomQuestion)
