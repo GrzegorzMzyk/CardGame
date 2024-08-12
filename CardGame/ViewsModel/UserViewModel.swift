@@ -11,7 +11,7 @@ import SwiftUI
 struct UserViewModel: View {
     
     @State var addUser: String = ""
-    @State var userek: [UserModel] = [UserModel(userName: "", userPoints: 0)]
+    @State var userek: [UserModel] = []
     @State  var randomQuestion: Questions = Questions(question: "puste", punishment: 0, points: 0)
     
     var body: some View {
@@ -48,7 +48,7 @@ struct UserViewModel: View {
                 add()
             }
         }, label: {
-            Text("Save".uppercased())
+            Text("Add")
                 .padding()
                 .frame(maxWidth: .infinity)
                 .background(textIsAppropriate() ? Color.blue : Color.gray)
