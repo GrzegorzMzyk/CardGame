@@ -10,8 +10,6 @@ import SwiftUI
 struct QuestionViewModels: View {
 
     @Binding var randomQuestion: Questions
-    @Binding var userek: UserModel
-   
     var body: some View {
         
         

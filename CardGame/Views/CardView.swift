@@ -11,14 +11,14 @@ struct CardView: View {
     var cardView: UserViewModel = UserViewModel()
     @State var showUsers:Bool = false
     @State var randomQuestion: Questions = Questions(question: "", punishment: 0, points: 0)
-    @State var userek: UserModel = UserModel(userName: "", userPoints: 0)
     var body: some View {
         NavigationStack {
             UserViewModel()
           
             
             NavigationLink("START") {
-                QuestionViewModels(randomQuestion: $randomQuestion, userek: $userek)
+              
+                QuestionViewModels(randomQuestion: $randomQuestion)
             }
             Spacer()
             .ignoresSafeArea()
@@ -54,8 +54,7 @@ struct CardView: View {
 
 #Preview {
     CardView()
-    
-//    CardView(points: .constant(9999), users: .constant(UserModel(userName: "", userPoints: 0)), randomQuestion: .constant(Questions(question: "", punishment: 998, points: 976)), userek: .constant([UserModel(userName: "", userPoints: 0)]))
+
 }
 
 

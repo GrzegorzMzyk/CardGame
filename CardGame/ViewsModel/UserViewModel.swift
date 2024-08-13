@@ -9,18 +9,19 @@ import SwiftUI
 
 struct UserViewModel: View {
     @State var addUser: String = ""
+    @State var point: Int16 = 0
     @State var userek: [UserModel] = []
+    @State var um = UserModel()
    
     
     var body: some View {
 List {
                    Section {
-                       ForEach(userek) { user in
+                       ForEach(um.savedEntities) { user in
                            HStack {
-                               Text(user.userName)
+                               Text(user.name ?? "no name")
                                Spacer()
-                            
-                               Text(user.userPoints.description)
+                               Text(user.points.description)
                                
                            }
                        }
@@ -63,7 +64,7 @@ List {
 
 extension UserViewModel {
 func add() {
-    userek.append(UserModel(userName: addUser, userPoints: 0))
+    um.addUser(text: addUser, number: point)
   }
    func delete(indexSet: IndexSet) {
         userek.remove(atOffsets: indexSet)

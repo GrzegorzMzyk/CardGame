@@ -18,6 +18,7 @@
 		198698362C36A65A00D94F58 /* QuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198698352C36A65A00D94F58 /* QuestionModel.swift */; };
 		198698382C36A84300D94F58 /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198698372C36A84300D94F58 /* QuestionData.swift */; };
 		19BAD4982C6A2454002B2D2C /* UserSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BAD4972C6A2454002B2D2C /* UserSheet.swift */; };
+		19E879DA2C6B85E6000CDA4A /* UsersContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 19E879D82C6B85E6000CDA4A /* UsersContainer.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		198698352C36A65A00D94F58 /* QuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionModel.swift; sourceTree = "<group>"; };
 		198698372C36A84300D94F58 /* QuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
 		19BAD4972C6A2454002B2D2C /* UserSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheet.swift; sourceTree = "<group>"; };
+		19E879D92C6B85E6000CDA4A /* UsersContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UsersContainer.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				198698352C36A65A00D94F58 /* QuestionModel.swift */,
 				198698372C36A84300D94F58 /* QuestionData.swift */,
 				193166CE2C43D7E300FCE297 /* UserModel.swift */,
+				19E879D82C6B85E6000CDA4A /* UsersContainer.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 				198698382C36A84300D94F58 /* QuestionData.swift in Sources */,
 				1986981E2C35DFAA00D94F58 /* CardGameApp.swift in Sources */,
 				196C48E62C3E806E00FEBFF7 /* QuestionViewModel.swift in Sources */,
+				19E879DA2C6B85E6000CDA4A /* UsersContainer.xcdatamodeld in Sources */,
 				193166CD2C42F3DE00FCE297 /* UserViewModel.swift in Sources */,
 				19BAD4982C6A2454002B2D2C /* UserSheet.swift in Sources */,
 				198698362C36A65A00D94F58 /* QuestionModel.swift in Sources */,
@@ -396,6 +400,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		19E879D82C6B85E6000CDA4A /* UsersContainer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				19E879D92C6B85E6000CDA4A /* UsersContainer.xcdatamodel */,
+			);
+			currentVersion = 19E879D92C6B85E6000CDA4A /* UsersContainer.xcdatamodel */;
+			name = UsersContainer.xcdatamodeld;
+			path = /Users/grmzy/Documents/GitHub/CardGame1/CardGame/Model/UsersContainer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 198698122C35DFAA00D94F58 /* Project object */;
 }
