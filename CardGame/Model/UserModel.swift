@@ -46,8 +46,15 @@ import Observation
         } catch let error {
             print("error saving .\(error)")
         }
-        
     }
+ 
+    func delete(indexSet: IndexSet) {
+        guard  let index = indexSet.first else { return }
+        let entity = savedEntities[index]
+        container.viewContext.delete(entity)
+        saveData()
+     }
+    
         
     }
 

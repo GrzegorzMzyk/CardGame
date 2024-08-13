@@ -10,7 +10,6 @@ import SwiftUI
 struct UserViewModel: View {
     @State var addUser: String = ""
     @State var point: Int16 = 0
-    @State var userek: [UserModel] = []
     @State var um = UserModel()
    
     
@@ -25,8 +24,7 @@ List {
                                
                            }
                        }
-                       .onDelete(perform: delete)
-                       .onMove(perform: move)
+                       .onDelete(perform: um.delete)
                            
                    }
                header: {
@@ -66,12 +64,7 @@ extension UserViewModel {
 func add() {
     um.addUser(text: addUser, number: point)
   }
-   func delete(indexSet: IndexSet) {
-        userek.remove(atOffsets: indexSet)
-    }
-   func move(indices: IndexSet, newOffset: Int) {
-        userek.move(fromOffsets: indices, toOffset: newOffset)
-    }
+   
     func textIsAppropriate() -> Bool {
         // check text
         if addUser.count >= 3 {
