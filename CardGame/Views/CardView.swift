@@ -8,45 +8,49 @@
 import SwiftUI
 
 struct CardView: View {
-   
+    
     @State var showUsers:Bool = false
     @State var randomQuestion: Questions = Questions(question: "", punishment: 0, points: 0)
+    
     var body: some View {
+
         NavigationStack {
-          
-            NavigationLink("START") {
-              
-                QuestionView(randomQuestion: $randomQuestion)
-            }
-            Spacer()
-            .ignoresSafeArea()
-            .navigationTitle("Card Game")
-            .navigationBarTitleDisplayMode(.automatic)
-            .toolbar(content: {
-                EditButton()
-                Button(action: {
-                    showUsers.toggle()
-                }, label: {
-                    Text("Users")
-                })
-                .sheet(isPresented: $showUsers, content: {
-                    // nie dodawac tu if else ...
-                    UserSheet()
-                })
+            Color(#colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1))
+                .ignoresSafeArea()
+                .overlay{
+                    Circle()
+                        .fill(RadialGradient(colors: [Color(#colorLiteral(red: 1, green: 0.4932718873, blue: 0.4739984274, alpha: 1)), Color(#colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1))],
+                                             center: .bottom,
+                                             startRadius: 150,
+                                             endRadius: 0))
+                        .frame(width: 200, height: 200)
+                        .shadow(color:.orange, radius: 50)
+                        .overlay {
+                            NavigationLink("START") {
+                                QuestionView(randomQuestion: $randomQuestion)
+                            }
+                        }
+                    
+                        .navigationTitle("Card Game")
+                        .navigationBarTitleDisplayMode(.automatic)
+                        .toolbar(content: {
+                            Button(action: {
+                                showUsers.toggle()
+                            }, label: {
+                                Text("Users")
+                            })
+                            .sheet(isPresented: $showUsers, content: {
+                                // nie dodawac tu if else ...
+                                UserSheet()
+                            })})
                 }
             
-            )
-            
-
-            }
-        .environment(randomQuestion)
-       
+                .environment(randomQuestion)
         }
-       
         
-
-    }
-
+        
+    }}
+    
 
 
 

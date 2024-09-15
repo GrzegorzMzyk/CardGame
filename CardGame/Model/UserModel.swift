@@ -19,8 +19,7 @@ import Observation
         container.loadPersistentStores { description, error in
             if let error = error {
                 print("error loading .\(error)")
-            } else {
-                print("Sucess")
+            
             }
         }
         fetchUsers()
