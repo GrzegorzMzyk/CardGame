@@ -10,6 +10,7 @@ import CoreData
 import Observation
 
 @Observable class UserModel: Identifiable {
+    
     let container: NSPersistentContainer
     var savedEntities: [UserEntity] = []
     

@@ -8,17 +8,15 @@
 import SwiftUI
 
 struct CardView: View {
-    var cardView: UserViewModel = UserViewModel()
+   
     @State var showUsers:Bool = false
     @State var randomQuestion: Questions = Questions(question: "", punishment: 0, points: 0)
     var body: some View {
         NavigationStack {
-            UserViewModel()
           
-            
             NavigationLink("START") {
               
-                QuestionViewModels(randomQuestion: $randomQuestion)
+                QuestionView(randomQuestion: $randomQuestion)
             }
             Spacer()
             .ignoresSafeArea()
