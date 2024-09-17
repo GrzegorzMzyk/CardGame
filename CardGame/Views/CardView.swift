@@ -11,7 +11,6 @@ struct CardView: View {
     
     @State var showUsers:Bool = false
     @State var randomQuestion: Questions = Questions(question: "", punishment: 0, points: 0)
-    
     var body: some View {
 
         NavigationStack {
@@ -19,19 +18,29 @@ struct CardView: View {
                 .ignoresSafeArea()
                 .overlay{
                     Circle()
+                        
                         .fill(RadialGradient(colors: [Color(#colorLiteral(red: 1, green: 0.4932718873, blue: 0.4739984274, alpha: 1)), Color(#colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1))],
                                              center: .bottom,
                                              startRadius: 150,
                                              endRadius: 0))
-                        .frame(width: 200, height: 200)
                         .shadow(color:.orange, radius: 50)
+                        .frame(maxWidth: 150, maxHeight: 150)
                         .overlay {
-                            NavigationLink("START") {
+                            NavigationLink {
                                 QuestionView(randomQuestion: $randomQuestion)
+                            } label: {
+                                Image(systemName: "play")
+                                    .foregroundColor(Color.white)
+                                    .frame(maxWidth: 100, maxHeight: 100)
+                                    .clipShape(Circle())
+                                    .font(.largeTitle)
+                                    .background(Color.clear)
+                                    .clipShape(Circle())
+    
                             }
                         }
                     
-                        .navigationTitle("Card Game")
+                        .navigationTitle(Text("Card Game"))
                         .navigationBarTitleDisplayMode(.automatic)
                         .toolbar(content: {
                             Button(action: {
