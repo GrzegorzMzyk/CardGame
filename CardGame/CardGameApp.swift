@@ -25,7 +25,7 @@ struct CardGameApp: App {
 
     var body: some Scene {
         WindowGroup {
-            CardView(points: .constant(9999), users: .constant(UserModel(userName: "", userPoints: 0)), randomQuestion: .constant(Questions(question: "", punishment: 998, points: 976)), userek: .constant([UserModel(userName: "", userPoints: 0)]))
+            CardView()
         }
         .modelContainer(sharedModelContainer)
     }

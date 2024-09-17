@@ -10,17 +10,14 @@ import Observation
 
 @Observable class Questions {
 
-    var  question: String
-    var  punishment: Int
-    var  points: Int
-    
+    var  question: String = ""
+    var  punishment: Int = 0
+    var  points: Int = 0
+  
     init( question: String, punishment: Int, points: Int) {
-
         self.question = question
         self.punishment = punishment
         self.points = points
-        
+
     }
-        
-    
     }

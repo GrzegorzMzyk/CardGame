@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 
-var quesstionClass: [Questions]  = [
+ var quesstionClass: [Questions]  = [
     Questions( question: "Wypowiedz imię osoby z którą ostatnio uprawiał_ś sex.", punishment: 2, points: 1),
     Questions( question: "Masz szczęście! Wskaż jednego gracza, który musi wypić kolejkę. Jeśli tego nie zrobi odpada z gry", punishment: 2, points: 2),
     Questions( question: "Zrób selfie i umieść je na Instagramie z podpisem: Napisz do mnie jeśli Ty też jestś wilgotn_! ", punishment: 1, points: 1),
@@ -54,8 +54,7 @@ var quesstionClass: [Questions]  = [
     Questions(question: "Zatańcz z osobą po prawej do piosenki wybranej przez innych", punishment: 1, points: 1),
     Questions(question: "Zadzwon do przyjaciela który miał być tutaj z Tobą. Jeśli nie odbierze pijesz kolejke", punishment: 1, points: 1),
     Questions(question: "Wymień 3 koktajle w ciagu 8  sekund", punishment: 1, points: 1),
-    Questions(question: "Cholera, zamknicie się", punishment: 2, points: 1),
-    Questions(question: "Która część ciała u płuci przeciwnej jest dla Ciebie najbardziej atrakcyjna?", punishment: 2, points: 1),
+    Questions(question: "Która część ciała u płci przeciwnej jest dla Ciebie najbardziej atrakcyjna?", punishment: 2, points: 1),
     Questions(question: "Gracz który jest najstarszy piję kolejkę", punishment: 1, points: 1),
     Questions(question: "Pijesz tyle razy ile tat najmłodszy gracz jest młodszy od Ciebie (maks 5 kolejek)", punishment: 0, points: 1),
     Questions(question: "Zadzwon na losowy numer i postaraj się aby osoba do której dzwonisz rozmawiała z Tobą przez telefon przez ponad dwie minuty. Jesli odłoży słuchawkę przed upływem dwóch minut, pijesz kolejke", punishment: 3, points: 1),
