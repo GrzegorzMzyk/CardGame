@@ -9,14 +9,17 @@ import SwiftUI
 
 struct QuestionView: View {
     
-    @Binding var randomQuestion: Questions
-    @State var us = UserSheet()
+    @ObservedObject var questionViewModel = QuestionViewModel()
+    
+  
     @State var um = UserModel()
     @State var animation: Bool = false
+    
     var body: some View {
+        
         ZStack{
             VStack{
-                Text (randomQuestion.question)
+                Text(questionViewModel.actualQuestion?.question ?? "Naciśni losój")
                     .foregroundStyle(Color.black)
                     .font(.title2)
                     .padding(30)
@@ -35,12 +38,12 @@ struct QuestionView: View {
                             .fill(Color(.red))
                             .frame(width: 70, height: 70)
                             .overlay {
-                                Menu(randomQuestion.points.description) {
-                                    ForEach(um.savedEntities) { user in
-                                        Button(user.name ?? "") {
-                                        }
+                                Menu(questionViewModel.actualQuestion?.points.description ?? "") {
+//                                    ForEach(um.savedEntities) { user in
+//                                        Button(user.name ?? "") {
+//                                        }
                                         
-                                    }
+//                                    }
                                     
                                     
                                 }
@@ -52,23 +55,24 @@ struct QuestionView: View {
                             .fill(Color(.blue))
                             .frame(width: 70, height: 70)
                             .overlay {
-                                Text(randomQuestion.punishment.description)
+                                Text(questionViewModel.actualQuestion?.punishment.description ?? "")
                             }
                     }
                     .padding(30)
                     .font(.largeTitle)
                 }
                 .padding(30)
-                
+                .onAppear {
+                    questionViewModel.randomQuestion()
+                }
                 
                 Spacer()
                 
                 Button("Losuj pytanie") {
                     withAnimation(.smooth) {
                         animation.toggle()
+                            
                     }
-                    
-                    randomQuestion =  quesstionClass.randomElement() ??  Questions(question: "Error", punishment: 0, points: 0)
                 }
                 
                 .clipShape(RoundedRectangle(cornerRadius: 25))
@@ -85,4 +89,8 @@ struct QuestionView: View {
 //    }
     
     
+}
+#Preview {
+    QuestionView()
+
 }

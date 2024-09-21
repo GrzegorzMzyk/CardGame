@@ -10,6 +10,7 @@ import SwiftUI
 struct CardView: View {
     
     @State var showUsers:Bool = false
+   
     @State var randomQuestion: Questions = Questions(question: "", punishment: 0, points: 0)
     var body: some View {
 
@@ -27,7 +28,8 @@ struct CardView: View {
                         .frame(maxWidth: 150, maxHeight: 150)
                         .overlay {
                             NavigationLink {
-                                QuestionView(randomQuestion: $randomQuestion)
+        
+                                QuestionView()
                             } label: {
                                 Image(systemName: "play")
                                     .foregroundColor(Color.white)
@@ -54,7 +56,6 @@ struct CardView: View {
                             })})
                 }
             
-                .environment(randomQuestion)
         }
         
         

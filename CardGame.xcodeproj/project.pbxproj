@@ -15,7 +15,6 @@
 		198698272C35DFAB00D94F58 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 198698262C35DFAB00D94F58 /* Preview Assets.xcassets */; };
 		1986982E2C35DFC900D94F58 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986982D2C35DFC900D94F58 /* CardView.swift */; };
 		198698362C36A65A00D94F58 /* QuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198698352C36A65A00D94F58 /* QuestionModel.swift */; };
-		198698382C36A84300D94F58 /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198698372C36A84300D94F58 /* QuestionData.swift */; };
 		19BAD4982C6A2454002B2D2C /* UserSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BAD4972C6A2454002B2D2C /* UserSheet.swift */; };
 		19E879DA2C6B85E6000CDA4A /* UsersContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 19E879D82C6B85E6000CDA4A /* UsersContainer.xcdatamodeld */; };
 /* End PBXBuildFile section */
@@ -30,7 +29,6 @@
 		198698262C35DFAB00D94F58 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1986982D2C35DFC900D94F58 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		198698352C36A65A00D94F58 /* QuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionModel.swift; sourceTree = "<group>"; };
-		198698372C36A84300D94F58 /* QuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
 		19BAD4972C6A2454002B2D2C /* UserSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSheet.swift; sourceTree = "<group>"; };
 		19E879D92C6B85E6000CDA4A /* UsersContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UsersContainer.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,7 +63,6 @@
 		1986981C2C35DFAA00D94F58 /* CardGame */ = {
 			isa = PBXGroup;
 			children = (
-				198698392C36AFA300D94F58 /* ViewsModel */,
 				198698322C35EF1100D94F58 /* Model */,
 				1986982F2C35DFF300D94F58 /* Views */,
 				1986981D2C35DFAA00D94F58 /* CardGameApp.swift */,
@@ -98,18 +95,10 @@
 			isa = PBXGroup;
 			children = (
 				198698352C36A65A00D94F58 /* QuestionModel.swift */,
-				198698372C36A84300D94F58 /* QuestionData.swift */,
 				193166CE2C43D7E300FCE297 /* UserModel.swift */,
 				19E879D82C6B85E6000CDA4A /* UsersContainer.xcdatamodeld */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		198698392C36AFA300D94F58 /* ViewsModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewsModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,7 +174,6 @@
 				198698222C35DFAA00D94F58 /* Item.swift in Sources */,
 				1986982E2C35DFC900D94F58 /* CardView.swift in Sources */,
 				193166CF2C43D7E300FCE297 /* UserModel.swift in Sources */,
-				198698382C36A84300D94F58 /* QuestionData.swift in Sources */,
 				1986981E2C35DFAA00D94F58 /* CardGameApp.swift in Sources */,
 				196C48E62C3E806E00FEBFF7 /* QuestionView.swift in Sources */,
 				19E879DA2C6B85E6000CDA4A /* UsersContainer.xcdatamodeld in Sources */,
