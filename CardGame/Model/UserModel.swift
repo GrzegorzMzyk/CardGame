@@ -10,6 +10,7 @@ import CoreData
 import Observation
 
 @Observable class UserModel: Identifiable {
+     var selectedUser: UserEntity?
     
     let container: NSPersistentContainer
     var savedEntities: [UserEntity] = []
@@ -24,6 +25,20 @@ import Observation
         }
         fetchUsers()
     }
+    
+    func addPointToSelectedUser() {
+        guard let selectedUser = selectedUser else { return }
+        selectedUser.points += 1
+
+           do {
+               try container.viewContext.save()
+           } catch {
+               print("Error saving user: \(error)")
+           }
+       }
+   
+    
+    
     func fetchUsers() {
         let request = NSFetchRequest<UserEntity>(entityName: "UserEntity")
         do {

@@ -10,8 +10,6 @@ import SwiftUI
 struct CardView: View {
     
     @State var showUsers:Bool = false
-   
-    @State var randomQuestion: Questions = Questions(question: "", punishment: 0, points: 0)
     var body: some View {
 
         NavigationStack {

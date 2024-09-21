@@ -12,7 +12,7 @@ struct QuestionView: View {
     @ObservedObject var questionViewModel = QuestionViewModel()
     
   
-    @State var um = UserModel()
+
     @State var animation: Bool = false
     
     var body: some View {
@@ -38,17 +38,7 @@ struct QuestionView: View {
                             .fill(Color(.red))
                             .frame(width: 70, height: 70)
                             .overlay {
-                                Menu(questionViewModel.actualQuestion?.points.description ?? "") {
-//                                    ForEach(um.savedEntities) { user in
-//                                        Button(user.name ?? "") {
-//                                        }
-                                        
-//                                    }
-                                    
-                                    
-                                }
-                                
-                                
+  
                             }
                         
                         Circle()
@@ -71,7 +61,7 @@ struct QuestionView: View {
                 Button("Losuj pytanie") {
                     withAnimation(.smooth) {
                         animation.toggle()
-                            
+                        questionViewModel.randomQuestion()
                     }
                 }
                 
@@ -79,7 +69,8 @@ struct QuestionView: View {
                 .buttonStyle(.bordered)
             }
             
-        }.background(Color(#colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)))
+        }
+        .background(Color(#colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)))
     }
     
 //    func pointSum() {
