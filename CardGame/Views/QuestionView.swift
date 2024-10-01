@@ -10,78 +10,55 @@ import SwiftUI
 struct QuestionView: View {
     
     @ObservedObject var questionViewModel = QuestionViewModel()
-    
-  
-
+    @State private var scrollPosition: Int? = nil
+    @State var offset: CGSize = .zero
     @State var animation: Bool = false
     
     var body: some View {
-        
-        ZStack{
-            VStack{
-                Text(questionViewModel.actualQuestion?.question ?? "Naciśni losój")
-                    .foregroundStyle(Color.black)
-                    .font(.title2)
-                    .padding(30)
-                    .background(RadialGradient(colors: [Color(#colorLiteral(red: 1, green: 0.4932718873, blue: 0.4739984274, alpha: 1)), Color(#colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1))],
-                                               center: .center,
-                                               startRadius: 200,
-                                               endRadius: 45))
-                    .clipShape(RoundedRectangle(cornerRadius: 25.0))
-                    .frame(maxWidth: .infinity)
-                    .padding(animation ? 10 : 50)
-                                        
-                
-                HStack(alignment:.center) {
-                    Group {
-                        Circle()
-                            .fill(Color(.red))
-                            .frame(width: 70, height: 70)
-                            .overlay {
-  
-                            }
-                        
-                        Circle()
-                            .fill(Color(.blue))
-                            .frame(width: 70, height: 70)
-                            .overlay {
-                                Text(questionViewModel.actualQuestion?.punishment.description ?? "")
-                            }
-                    }
-                    .padding(30)
-                    .font(.largeTitle)
-                }
-                .padding(30)
-                .onAppear {
-                    questionViewModel.randomQuestion()
+        ScrollView() {
+            VStack(spacing:0) {
+                ForEach(0..<146) { _ in
+                    let randomIndex = Int.random(in: 0..<questionViewModel.quesstios.endIndex)
+                    RoundedRectangle(cornerRadius: 25)
+                        .foregroundStyle((RadialGradient(colors: [Color(#colorLiteral(red: 1, green: 0.02556545474, blue: 0, alpha: 0.5)), Color(#colorLiteral(red: 0.5808190107, green: 0.0884276256, blue: 0.3186392188, alpha: 0.7450331126))],
+                                                         center: .bottom,
+                                                         startRadius: 500,
+                                                         endRadius: 50)))
+                        .shadow(color:.orange, radius: 50)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .padding(.vertical, 100)
+                        .overlay {
+                            Text(questionViewModel.quesstios[randomIndex].question)
+                                .font(.largeTitle)
+                                .bold()
+                                .foregroundStyle(Color.white)
+                                .padding()
+                                
+                        }
+                    
+                        .padding(10)
+                        .containerRelativeFrame(.vertical, alignment: .center)
+                        .scrollTransition(.interactive.threshold(.visible(0.9))) { content, phase in
+                            content
+                                .opacity(phase.isIdentity ? 1 : 0)
+                                .offset(y: phase.isIdentity ? 0 : -100)
+                        }
                 }
                 
-                Spacer()
-                
-                Button("Losuj pytanie") {
-                    withAnimation(.smooth) {
-                        animation.toggle()
-                        questionViewModel.randomQuestion()
-                    }
-                }
-                
-                .clipShape(RoundedRectangle(cornerRadius: 25))
-                .buttonStyle(.bordered)
             }
-            
         }
+     
+        .ignoresSafeArea()
+        .scrollTargetLayout()
+        .scrollTargetBehavior(.paging)
+        .scrollBounceBehavior(.basedOnSize)
         .background(Color(#colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)))
     }
     
-//    func pointSum() {
-//        let pointInt = Int(us.point)
-//        let newPoints = pointInt + randomQuestion.points
-//        
-//    }
-    
-    
 }
+
 #Preview {
     QuestionView()
 
 }
+
