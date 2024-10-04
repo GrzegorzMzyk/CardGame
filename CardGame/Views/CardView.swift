@@ -7,8 +7,10 @@
 
 import SwiftUI
 
+
+
 struct CardView: View {
-    
+    @State private var isAnimating: Bool = false
     @State var showUsers:Bool = false
     var body: some View {
         
@@ -24,9 +26,10 @@ struct CardView: View {
                                              endRadius: 0))
                         .shadow(color:.orange, radius: 50)
                         .frame(maxWidth: 150, maxHeight: 150)
+                        
+                    
                         .overlay {
                             NavigationLink {
-                                
                                 QuestionView()
                                 
                             } label: {
@@ -40,7 +43,7 @@ struct CardView: View {
                                 
                             }
                         }
-//                     
+                    //
                         .navigationTitle(Text("Card Game"))
                     
                     
@@ -55,7 +58,11 @@ struct CardView: View {
                                 UserSheet()
                             })})
                 }
-            
+                .scaleEffect(isAnimating ? 1.1 : 1.0)
+                .animation(.easeInOut(duration: 1).repeatForever(), value: isAnimating)
+        }
+        .onAppear{
+            self.isAnimating = true
         }
         
         

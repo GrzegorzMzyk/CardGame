@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct QuestionView: View {
     
     @ObservedObject var questionViewModel = QuestionViewModel()
@@ -28,24 +29,45 @@ struct QuestionView: View {
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .padding(.vertical, 100)
                         .overlay {
-                            Text(questionViewModel.quesstios[randomIndex].question)
-                                .font(.largeTitle)
-                                .bold()
-                                .foregroundStyle(Color.white)
-                                .padding()
+                            VStack{
                                 
+                                Text(questionViewModel.quesstios[randomIndex].question)
+                                    .font(.largeTitle)
+                                    .bold()
+                                    .foregroundStyle(Color.white)
+                                    .padding()
+                                    .multilineTextAlignment(.center)
+                                ZStack{
+                                    Circle()
+                                    
+                                    VStack{
+                                        Image(systemName:"wineglass.fill")
+                                            .font(.title)
+                                        Text("\(questionViewModel.quesstios[randomIndex].punishment)")
+                                            .foregroundStyle(Color.white)
+                                    }
+                                    .foregroundStyle(Color.white)
+                                }
+                                .frame(maxWidth:70, maxHeight: 70)
+                                    .padding(.leading, 290)
+                                    
+                                }
+                            
                         }
                     
                         .padding(10)
                         .containerRelativeFrame(.vertical, alignment: .center)
-                        .scrollTransition(.interactive.threshold(.visible(0.9))) { content, phase in
+                        .scrollTransition(.interactive.threshold(.visible(0.9))) {
+                            content, phase in
                             content
                                 .opacity(phase.isIdentity ? 1 : 0)
                                 .offset(y: phase.isIdentity ? 0 : -100)
+                            
                         }
                 }
                 
             }
+          
         }
      
         .ignoresSafeArea()
@@ -53,6 +75,8 @@ struct QuestionView: View {
         .scrollTargetBehavior(.paging)
         .scrollBounceBehavior(.basedOnSize)
         .background(Color(#colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)))
+        
+        
     }
     
 }
