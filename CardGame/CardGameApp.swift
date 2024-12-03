@@ -24,6 +24,10 @@ struct CardGameApp: App {
     }()
 
     var body: some Scene {
+        
+        
+        
+        
         WindowGroup {
             CardView()
         }
