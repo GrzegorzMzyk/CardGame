@@ -6,75 +6,77 @@
 //
 
 import SwiftUI
-
+import SwiftfulRouting
 
 
 struct CardView: View {
-    @State private var isAnimating: Bool = false
-    @State var showUsers:Bool = false
+    @StateObject private var QVM = QuestionViewModel()
+
+    
     var body: some View {
         
-        NavigationStack {
-            Color(#colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1))
-                .ignoresSafeArea()
-                .overlay{
-                    Circle()
+            RouterView { router in
+                ZStack{
+                    Color(.backgroundCard)
+                        .ignoresSafeArea()
                     
-                        .fill(RadialGradient(colors: [Color(#colorLiteral(red: 1, green: 0, blue: 0.09904881567, alpha: 1)), Color(#colorLiteral(red: 0.5808190107, green: 0.0884276256, blue: 0.3186392188, alpha: 1))],
-                                             center: .bottom,
-                                             startRadius: 150,
-                                             endRadius: 0))
-                        .shadow(color:.orange, radius: 50)
-                        .frame(maxWidth: 150, maxHeight: 150)
+                    
+                    VStack(spacing:30) {
                         
-                    
-                        .overlay {
-                            NavigationLink {
-                                QuestionView()
-                                
-                            } label: {
-                                Image(systemName: "play")
-                                    .foregroundColor(Color.white)
-                                    .frame(maxWidth: 100, maxHeight: 100)
-                                    .clipShape(Circle())
-                                    .font(.largeTitle)
-                                    .background(Color.clear)
-                                    .clipShape(Circle())
+                        
+                        circleButton1().asButton {
+                            router.showScreen(.sheet) { _ in
+                                QuestionView(QVM: QVM)
+                                    .toolbar(.visible)
                                 
                             }
                         }
-                    //
-                        .navigationTitle(Text("Card Game"))
-                    
-                    
-                        .toolbar(content: {
-                            Button(action: {
-                                showUsers.toggle()
-                            }, label: {
-                                Text("Users")
-                            })
-                            .sheet(isPresented: $showUsers, content: {
-                                // nie dodawac tu if else ...
-                                UserSheet()
-                            })})
+                        
+                       
+                        Toggle("Hard Mode", isOn: $QVM.filterOnlyEasyQuestions)
+                            .toggleStyle(SwitchToggleStyle(tint: .red))
+                            .padding()
+                            .foregroundStyle(Color.black)
+                            .background(Color.white)
+                        
+                            .clipShape(RoundedRectangle(cornerRadius: 40))
+                        
+                            .padding(.horizontal, 120)
+                    }
                 }
-                .scaleEffect(isAnimating ? 1.1 : 1.0)
-                .animation(.easeInOut(duration: 1).repeatForever(), value: isAnimating)
+            }
+            .background(Color.backgroundCard.ignoresSafeArea())
+            
+            
         }
-        .onAppear{
-            self.isAnimating = true
-        }
-        
-        
+   
     }
-}
-    
-
-
 
 #Preview {
     CardView()
 
 }
 
+extension CardView {
+    struct circleButton1: View {
+        var body: some View {
+            Circle()
+                .fill(RadialGradient(colors: [Color(.backgroundCard), Color(.foregroundCard)],
+                                     center: .bottom,
+                                     startRadius: 150,
+                                     endRadius: 0))
+                .shadow(color:.white, radius: 50)
+                .frame(maxWidth: 150, maxHeight: 150)
+                .overlay {
+                    Image(systemName: "play")
+                        .foregroundColor(Color.white)
+                        .frame(maxWidth: 100, maxHeight: 100)
+                        .clipShape(Circle())
+                        .font(.largeTitle)
+                        .background(Color.clear)
+                        .clipShape(Circle())
+                }
+        }
+                }
+        }
 
