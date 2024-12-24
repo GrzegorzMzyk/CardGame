@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct QuestionsModel: Identifiable, Hashable {
     var id: String = UUID().uuidString
     var  question: String
@@ -204,7 +203,6 @@ class QuestionViewModel: ObservableObject {
 
     @Published var currentQuestion: QuestionsModel?
     @Published var filterOnlyEasyQuestions: Bool = false
-
 
     init() {
         loadNextQuestion()

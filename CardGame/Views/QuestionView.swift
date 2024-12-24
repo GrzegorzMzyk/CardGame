@@ -9,49 +9,52 @@ import SwiftUI
 
 struct QuestionView: View {
 
+    /// View modele może nazywałbym wszędzie po prostu viewModel zamiast QVM. Nie musisz się wtedy zastanawiać/pamiętać
+    /// w którym View jaki sktót odpowiada jakiemu view modelowi
     @ObservedObject var QVM = QuestionViewModel()
     @State private var dragOffset: CGSize = .zero
     @State private var floatingOffset: CGFloat = .zero
 
     var body: some View {
-
-        ZStack {
-            // Aktualna karta
-            if let currentQuestion = QVM.currentQuestion {
-                cardView(for: currentQuestion, isHard: currentQuestion.isHard)
-                    .offset(y: dragOffset.height + floatingOffset)
-                    .gesture(
-                        DragGesture()
-                            .onChanged { gesture in
-                                dragOffset = gesture.translation
-                            }
-                            .onEnded { gesture in
-                                if gesture.translation.height > 100 {
-                                    // Gdy przeciągnięcie jest wystarczające
-                                    withAnimation {
-                                        dragOffset = .zero
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                                            QVM.loadNextQuestion()
+        NavigationStack {
+            ZStack {
+                // Aktualna karta
+                if let currentQuestion = QVM.currentQuestion {
+                    cardView(for: currentQuestion, isHard: currentQuestion.isHard)
+                        .offset(y: dragOffset.height + floatingOffset)
+                        .gesture(
+                            DragGesture()
+                                .onChanged { gesture in
+                                    dragOffset = gesture.translation
+                                }
+                                .onEnded { gesture in
+                                    if gesture.translation.height > 100 {
+                                        // Gdy przeciągnięcie jest wystarczające
+                                        withAnimation {
+                                            dragOffset = .zero
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                                QVM.loadNextQuestion()
+                                            }
+                                        }
+                                    } else {
+                                        // Powrót do pierwotnej pozycji
+                                        withAnimation {
+                                            dragOffset = .zero
                                         }
                                     }
-                                } else {
-                                    // Powrót do pierwotnej pozycji
-                                    withAnimation {
-                                        dragOffset = .zero
-                                    }
                                 }
-                            }
-                    )
-                    .onAppear(perform: {
-                        startFloatingAnimation()
-                    })
-                    .animation(.bouncy, value: dragOffset) // Animacja powrotu
+                        )
+                        .onAppear(perform: {
+                            startFloatingAnimation()
+                        })
+                        .animation(.bouncy, value: dragOffset) // Animacja powrotu
+                }
             }
+            .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.backgroundCard)
+            .toolbar(.visible)
         }
-        .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.backgroundCard)
-
     }
 
     private func startFloatingAnimation() {
@@ -76,6 +79,5 @@ struct QuestionView: View {
 
 #Preview {
     QuestionView()
-
 }
 

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19101AE82CF8707D00AD4DCD /* SwiftfulUI in Frameworks */ = {isa = PBXBuildFile; productRef = 19101AE72CF8707D00AD4DCD /* SwiftfulUI */; };
 		19101AEA2CF8787600AD4DCD /* FirstCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19101AE92CF8787600AD4DCD /* FirstCardView.swift */; };
 		193166CF2C43D7E300FCE297 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193166CE2C43D7E300FCE297 /* UserModel.swift */; };
 		196C48E62C3E806E00FEBFF7 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196C48E52C3E806E00FEBFF7 /* QuestionView.swift */; };
@@ -17,7 +16,6 @@
 		198698272C35DFAB00D94F58 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 198698262C35DFAB00D94F58 /* Preview Assets.xcassets */; };
 		1986982E2C35DFC900D94F58 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986982D2C35DFC900D94F58 /* CardView.swift */; };
 		198698362C36A65A00D94F58 /* QuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198698352C36A65A00D94F58 /* QuestionModel.swift */; };
-		19D0966B2CFB995200D2FC6B /* SwiftfulRouting in Frameworks */ = {isa = PBXBuildFile; productRef = 19D0966A2CFB995200D2FC6B /* SwiftfulRouting */; };
 		19D0966D2CFBAE6400D2FC6B /* DismisButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D0966C2CFBAE6400D2FC6B /* DismisButton.swift */; };
 		4F162C4B2D1A32590001AEAD /* UsersContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4F162C492D1A32590001AEAD /* UsersContainer.xcdatamodeld */; };
 /* End PBXBuildFile section */
@@ -42,8 +40,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19101AE82CF8707D00AD4DCD /* SwiftfulUI in Frameworks */,
-				19D0966B2CFB995200D2FC6B /* SwiftfulRouting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,8 +149,6 @@
 			);
 			mainGroup = 198698112C35DFAA00D94F58;
 			packageReferences = (
-				19101AE62CF8707C00AD4DCD /* XCRemoteSwiftPackageReference "SwiftfulUI" */,
-				19D096692CFB995200D2FC6B /* XCRemoteSwiftPackageReference "SwiftfulRouting" */,
 			);
 			productRefGroup = 1986981B2C35DFAA00D94F58 /* Products */;
 			projectDirPath = "";
@@ -402,38 +396,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		19101AE62CF8707C00AD4DCD /* XCRemoteSwiftPackageReference "SwiftfulUI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftfulThinking/SwiftfulUI";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.0;
-			};
-		};
-		19D096692CFB995200D2FC6B /* XCRemoteSwiftPackageReference "SwiftfulRouting" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftfulThinking/SwiftfulRouting";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.3.6;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		19101AE72CF8707D00AD4DCD /* SwiftfulUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 19101AE62CF8707C00AD4DCD /* XCRemoteSwiftPackageReference "SwiftfulUI" */;
-			productName = SwiftfulUI;
-		};
-		19D0966A2CFB995200D2FC6B /* SwiftfulRouting */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 19D096692CFB995200D2FC6B /* XCRemoteSwiftPackageReference "SwiftfulRouting" */;
-			productName = SwiftfulRouting;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		4F162C492D1A32590001AEAD /* UsersContainer.xcdatamodeld */ = {
