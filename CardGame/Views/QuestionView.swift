@@ -6,8 +6,7 @@
 //
 
 import SwiftUI
-import SwiftfulUI
-import SwiftfulRouting
+
 
 struct QuestionView: View {
     
@@ -30,7 +29,7 @@ struct QuestionView: View {
                             }
                             .onEnded { gesture in
                                 
-                                if gesture.translation.height > 100 {
+                                if gesture.translation.height < 100 {
                                     // Gdy przeciągnięcie jest wystarczające
                                     withAnimation {
                                         dragOffset = .zero

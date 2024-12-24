@@ -753,6 +753,7 @@ class QuestionViewModel: ObservableObject {
     ]
     
     @Published var currentQuestion: QuestionsModel?
+//    @Published var nextQuestion: QuestionsModel?
     @Published var filterOnlyEasyQuestions: Bool = false
     
 
