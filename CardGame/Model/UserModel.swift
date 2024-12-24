@@ -37,8 +37,6 @@ import Observation
         }
     }
 
-
-
     func fetchUsers() {
         let request = NSFetchRequest<UserEntity>(entityName: "UserEntity")
         do {
