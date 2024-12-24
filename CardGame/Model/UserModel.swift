@@ -10,35 +10,35 @@ import CoreData
 import Observation
 
 @Observable class UserModel: Identifiable {
-     var selectedUser: UserEntity?
-    
     let container: NSPersistentContainer
+    var selectedUser: UserEntity?
     var savedEntities: [UserEntity] = []
-    
+
     init() {
         self.container = NSPersistentContainer(name: "UsersContainer")
         container.loadPersistentStores { description, error in
-            if let error = error {
+            if let error {
                 print("error loading .\(error)")
-            
             }
         }
         fetchUsers()
     }
-    
+
     func addPointToSelectedUser() {
-        guard let selectedUser = selectedUser else { return }
+        guard let selectedUser
+        else { return }
+
         selectedUser.points += 1
 
-           do {
-               try container.viewContext.save()
-           } catch {
-               print("Error saving user: \(error)")
-           }
-       }
-   
-    
-    
+        do {
+            try container.viewContext.save()
+        } catch let error {
+            print("Error saving user: \(error)")
+        }
+    }
+
+
+
     func fetchUsers() {
         let request = NSFetchRequest<UserEntity>(entityName: "UserEntity")
         do {
@@ -46,9 +46,9 @@ import Observation
         } catch let error {
             print("error fetching \(error)")
         }
-       
+
     }
-    func addUser(text:String, number:Int16) {
+    func addUser(text: String, number: Int16) {
         let newUser = UserEntity(context: container.viewContext)
         newUser.name = text
         newUser.points = number
@@ -56,20 +56,22 @@ import Observation
     }
     func saveData() {
         do {
-           try container.viewContext.save()
+            try container.viewContext.save()
             fetchUsers()
         } catch let error {
             print("error saving .\(error)")
         }
     }
- 
+
     func delete(indexSet: IndexSet) {
-        guard  let index = indexSet.first else { return }
+        guard let index = indexSet.first
+        else { return }
+
         let entity = savedEntities[index]
         container.viewContext.delete(entity)
         saveData()
-     }
-    
-        
     }
+
+
+}
 

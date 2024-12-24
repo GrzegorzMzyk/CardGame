@@ -6,18 +6,15 @@
 //
 
 import SwiftUI
-import SwiftfulUI
-import SwiftfulRouting
 
 struct QuestionView: View {
-    
+
     @ObservedObject var QVM = QuestionViewModel()
     @State private var dragOffset: CGSize = .zero
     @State private var floatingOffset: CGFloat = .zero
-    
-    
+
     var body: some View {
-       
+
         ZStack {
             // Aktualna karta
             if let currentQuestion = QVM.currentQuestion {
@@ -29,7 +26,6 @@ struct QuestionView: View {
                                 dragOffset = gesture.translation
                             }
                             .onEnded { gesture in
-                                
                                 if gesture.translation.height > 100 {
                                     // Gdy przeciągnięcie jest wystarczające
                                     withAnimation {
@@ -37,7 +33,6 @@ struct QuestionView: View {
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                                             QVM.loadNextQuestion()
                                         }
-                                        
                                     }
                                 } else {
                                     // Powrót do pierwotnej pozycji
@@ -50,25 +45,23 @@ struct QuestionView: View {
                     .onAppear(perform: {
                         startFloatingAnimation()
                     })
-             
                     .animation(.bouncy, value: dragOffset) // Animacja powrotu
             }
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.backgroundCard)
-        
+
     }
-    
-    
+
     private func startFloatingAnimation() {
-            withAnimation(
-                Animation.easeInOut(duration: 1.5)
-                    .repeatForever(autoreverses: true)
-            ) {
-                floatingOffset = 10 // Delikatne przesunięcie w dół
-            }
+        withAnimation(
+            Animation.easeInOut(duration: 1.5)
+                .repeatForever(autoreverses: true)
+        ) {
+            floatingOffset = 10 // Delikatne przesunięcie w dół
         }
+    }
 
     // Reusable card view function
     private func cardView(for question: QuestionsModel, isHard: Bool) -> some View {

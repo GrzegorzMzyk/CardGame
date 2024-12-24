@@ -11,9 +11,7 @@ import SwiftData
 @main
 struct CardGameApp: App {
     var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
+        let schema = Schema([Item.self])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
         do {
@@ -24,10 +22,6 @@ struct CardGameApp: App {
     }()
 
     var body: some Scene {
-        
-        
-        
-        
         WindowGroup {
             CardView()
         }

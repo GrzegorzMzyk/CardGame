@@ -6,55 +6,40 @@
 //
 
 import SwiftUI
+import SwiftfulUI
 import SwiftfulRouting
-
 
 struct CardView: View {
     @StateObject private var QVM = QuestionViewModel()
 
-    
     var body: some View {
-        
-            RouterView { router in
-                ZStack{
-                    Color(.backgroundCard)
-                        .ignoresSafeArea()
-                    
-                    
-                    VStack(spacing:30) {
-                        
-                        
-                        circleButton1().asButton {
-                            router.showScreen(.sheet) { _ in
-                                QuestionView(QVM: QVM)
-                                    .toolbar(.visible)
-                                
-                            }
+        RouterView { router in
+            ZStack{
+                Color(.backgroundCard)
+                    .ignoresSafeArea()
+                VStack(spacing:30) {
+                    circleButton1().asButton {
+                        router.showScreen(.sheet) { _ in
+                            QuestionView(QVM: QVM)
+                                .toolbar(.visible)
                         }
-                        
-                       
-                        Toggle("Hard Mode", isOn: $QVM.filterOnlyEasyQuestions)
-                            .toggleStyle(SwitchToggleStyle(tint: .red))
-                            .padding()
-                            .foregroundStyle(Color.black)
-                            .background(Color.white)
-                        
-                            .clipShape(RoundedRectangle(cornerRadius: 40))
-                        
-                            .padding(.horizontal, 120)
                     }
+                    Toggle("Hard Mode", isOn: $QVM.filterOnlyEasyQuestions)
+                        .toggleStyle(SwitchToggleStyle(tint: .red))
+                        .padding()
+                        .foregroundStyle(Color.black)
+                        .background(Color.white)
+                        .clipShape(RoundedRectangle(cornerRadius: 40))
+                        .padding(.horizontal, 120)
                 }
             }
-            .background(Color.backgroundCard.ignoresSafeArea())
-            
-            
         }
-   
+        .background(Color.backgroundCard.ignoresSafeArea())
     }
+}
 
 #Preview {
     CardView()
-
 }
 
 extension CardView {
@@ -77,6 +62,6 @@ extension CardView {
                         .clipShape(Circle())
                 }
         }
-                }
-        }
+    }
+}
 
