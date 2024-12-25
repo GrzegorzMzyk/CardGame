@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-
 struct QuestionView: View {
 
     /// View modele może nazywałbym wszędzie po prostu viewModel zamiast QVM. Nie musisz się wtedy zastanawiać/pamiętać
@@ -16,6 +15,7 @@ struct QuestionView: View {
     @State private var floatingOffset: CGFloat = .zero
 
     var body: some View {
+
         NavigationStack {
             ZStack {
                 // Aktualna karta
