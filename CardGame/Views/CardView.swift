@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CardView: View {
-    @StateObject private var QVM = QuestionViewModel()
+    @StateObject private var viewModel = QuestionViewModel()
     @State var gameSheetIsPresented = false
     
     var body: some View {
@@ -16,14 +16,14 @@ struct CardView: View {
             Color.backgroundCard
                 .ignoresSafeArea()
             VStack(spacing:30) {
-                /// Tutaj użyta jest składnia trailing closure, poniżej, wykomentowana, jest alternatywna składnia
-                PlayButton {
-                    gameSheetIsPresented = true
-                }
-                //                    PlayButton(action: {
-                //                        gameSheetIsPresented = true
-                //                    })
-                Toggle("Hard Mode", isOn: $QVM.filterOnlyEasyQuestions)
+                Button {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        gameSheetIsPresented = true
+                    }
+                } label: {}
+                    .buttonStyle(CustomButtonStyle())
+                
+                Toggle("Hard Mode", isOn: $viewModel.filterOnlyEasyQuestions)
                     .toggleStyle(SwitchToggleStyle(tint: .red))
                     .padding()
                     .foregroundStyle(Color.black)
@@ -34,7 +34,7 @@ struct CardView: View {
         }
         .background(Color.backgroundCard.ignoresSafeArea())
         .sheet(isPresented: $gameSheetIsPresented) {
-            QuestionView(viewModel: QVM)
+            QuestionView(viewModel: viewModel)
         }
     }
 }
@@ -43,30 +43,36 @@ struct CardView: View {
     CardView()
 }
 
-struct PlayButton: View {
-    var action: ()->()
+
+struct CustomButtonStyle: ButtonStyle {
     
-    var body: some View {
+    private let theme: RadialGradient =
+    (RadialGradient(colors:[
+        Color.backgroundCard,
+        Color.foregroundCard],
+                    center: .bottom,
+                    startRadius: 150,
+                    endRadius: 0))
+    
+    
+    
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+        
         Circle()
-            .fill(RadialGradient(colors: [Color.backgroundCard, Color.foregroundCard],
-                                 center: .bottom,
-                                 startRadius: 150,
-                                 endRadius: 0))
+            .fill(theme)
             .shadow(color:.white, radius: 50)
-            .frame(maxWidth: 150, maxHeight: 150)
-            .onTapGesture {
-                action()
-            }
+            .frame(width: 150, height: 150)
+            .scaleEffect(configuration.isPressed ? 0.9 : 1)
+            .opacity(configuration.isPressed ? 0.1 : 1)
+            .animation(.easeIn, value: configuration.isPressed)
             .overlay {
                 Image(systemName: "play")
                     .foregroundColor(Color.white)
-                    .frame(maxWidth: 100, maxHeight: 100)
-                    .clipShape(Circle())
                     .font(.largeTitle)
-                    .background(Color.clear)
-                    .clipShape(Circle())
             }
     }
 }
+
 
 
