@@ -10,27 +10,27 @@ import SwiftUI
 struct CardView: View {
     @StateObject private var QVM = QuestionViewModel()
     @State var gameSheetIsPresented = false
-
+    
     var body: some View {
-            ZStack{
-                Color.backgroundCard
-                    .ignoresSafeArea()
-                VStack(spacing:30) {
-                    /// Tutaj użyta jest składnia trailing closure, poniżej, wykomentowana, jest alternatywna składnia
-                    PlayButton {
-                        gameSheetIsPresented = true
-                    }
-//                    PlayButton(action: {
-//                        gameSheetIsPresented = true
-//                    })
-                    Toggle("Hard Mode", isOn: $QVM.filterOnlyEasyQuestions)
-                        .toggleStyle(SwitchToggleStyle(tint: .red))
-                        .padding()
-                        .foregroundStyle(Color.black)
-                        .background(Color.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 40))
-                        .padding(.horizontal, 120)
+        ZStack{
+            Color.backgroundCard
+                .ignoresSafeArea()
+            VStack(spacing:30) {
+                /// Tutaj użyta jest składnia trailing closure, poniżej, wykomentowana, jest alternatywna składnia
+                PlayButton {
+                    gameSheetIsPresented = true
                 }
+                //                    PlayButton(action: {
+                //                        gameSheetIsPresented = true
+                //                    })
+                Toggle("Hard Mode", isOn: $QVM.filterOnlyEasyQuestions)
+                    .toggleStyle(SwitchToggleStyle(tint: .red))
+                    .padding()
+                    .foregroundStyle(Color.black)
+                    .background(Color.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 40))
+                    .padding(.horizontal, 120)
+            }
         }
         .background(Color.backgroundCard.ignoresSafeArea())
         .sheet(isPresented: $gameSheetIsPresented) {
@@ -45,7 +45,7 @@ struct CardView: View {
 
 struct PlayButton: View {
     var action: ()->()
-
+    
     var body: some View {
         Circle()
             .fill(RadialGradient(colors: [Color.backgroundCard, Color.foregroundCard],

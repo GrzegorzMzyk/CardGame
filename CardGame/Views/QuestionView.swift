@@ -7,15 +7,15 @@
 
 import SwiftUI
 struct QuestionView: View {
-
+    
     /// View modele może nazywałbym wszędzie po prostu viewModel zamiast QVM. Nie musisz się wtedy zastanawiać/pamiętać
     /// w którym View jaki sktót odpowiada jakiemu view modelowi
     @ObservedObject var viewModel = QuestionViewModel()
     @State private var dragOffset: CGSize = .zero
     @State private var floatingOffset: CGFloat = .zero
-
+    
     var body: some View {
-
+        
         NavigationStack {
             ZStack {
                 // Aktualna karta
@@ -56,7 +56,7 @@ struct QuestionView: View {
             .toolbar(.visible)
         }
     }
-
+    
     private func startFloatingAnimation() {
         withAnimation(
             Animation.easeInOut(duration: 1.5)
@@ -65,7 +65,7 @@ struct QuestionView: View {
             floatingOffset = 10 // Delikatne przesunięcie w dół
         }
     }
-
+    
     // Reusable card view function
     private func cardView(for question: QuestionsModel, isHard: Bool) -> some View {
         FirstCardView(
