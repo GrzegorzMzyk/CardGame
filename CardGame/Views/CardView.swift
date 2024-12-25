@@ -34,7 +34,7 @@ struct CardView: View {
         }
         .background(Color.backgroundCard.ignoresSafeArea())
         .sheet(isPresented: $gameSheetIsPresented) {
-            QuestionView(QVM: QVM)
+            QuestionView(viewModel: QVM)
         }
     }
 }

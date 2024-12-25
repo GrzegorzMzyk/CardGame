@@ -10,7 +10,7 @@ struct QuestionView: View {
 
     /// View modele może nazywałbym wszędzie po prostu viewModel zamiast QVM. Nie musisz się wtedy zastanawiać/pamiętać
     /// w którym View jaki sktót odpowiada jakiemu view modelowi
-    @ObservedObject var QVM = QuestionViewModel()
+    @ObservedObject var viewModel = QuestionViewModel()
     @State private var dragOffset: CGSize = .zero
     @State private var floatingOffset: CGFloat = .zero
 
@@ -19,7 +19,7 @@ struct QuestionView: View {
         NavigationStack {
             ZStack {
                 // Aktualna karta
-                if let currentQuestion = QVM.currentQuestion {
+                if let currentQuestion = viewModel.currentQuestion {
                     cardView(for: currentQuestion, isHard: currentQuestion.isHard)
                         .offset(y: dragOffset.height + floatingOffset)
                         .gesture(
@@ -33,7 +33,7 @@ struct QuestionView: View {
                                         withAnimation {
                                             dragOffset = .zero
                                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                                                QVM.loadNextQuestion()
+                                                viewModel.loadNextQuestion()
                                             }
                                         }
                                     } else {
