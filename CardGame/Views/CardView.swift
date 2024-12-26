@@ -33,7 +33,7 @@ struct CardView: View {
             }
         }
         .background(Color.backgroundCard.ignoresSafeArea())
-        .sheet(isPresented: $gameSheetIsPresented) {
+        .fullScreenCover(isPresented: $gameSheetIsPresented) {
             QuestionView(viewModel: viewModel)
         }
     }

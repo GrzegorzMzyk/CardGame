@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FirstCardView: View {
+    
     var question = "pytanie"
     var punishment = 3
     var points = 3
@@ -17,36 +18,48 @@ struct FirstCardView: View {
         ZStack{
             RoundedRectangle(cornerRadius: 25)
                 .fill(cardColor)
-                .overlay(
+          
                     VStack(alignment: .center, spacing: 20) {
-                        //                        DismisButton()
-                        //                            .padding(.top)
-                        //                        Spacer()
+                        HStack{
+                            DismisButton()
+                            Spacer()
+                        }
+                        .padding()
+                        
+                       
+                        Spacer()
+                        VStack{
                         Text(question)
                             .font(.system(size: 30))
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
                             .bold()
                             .padding()
-                        
                         HStack{
                             ForEach(0..<punishment, id: \.self) { _ in
                                 Image("shotGlassIcon")
                             }
                         }
-                        
-                        HStack{
-                            ForEach(0..<points, id: \.self) { _ in
-                                Image("points-30")
-                                    .scaledToFit()
+                            HStack{
+                                ForEach(0..<points, id: \.self) { _ in
+                                    Image("points-30")
+                                        .scaledToFit()
+                                }
                             }
                         }
+                        .padding(.bottom)
                         
+                        Spacer()
+                        Spacer()
                     }
-                )
+                    
                 .foregroundStyle(Color.white)
+
+            
         }
+        
     }
+    
 }
 
 #Preview {

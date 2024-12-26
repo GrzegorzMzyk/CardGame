@@ -8,13 +8,23 @@
 import SwiftUI
 
 struct DismisButton: View {
+    @Environment(\.dismiss) var dismissScreen
     var body: some View {
-        RoundedRectangle(cornerRadius: 20)
-            .frame(height: 4)
-            .frame(maxWidth: 30)
-            .onTapGesture {
-                //TODO: implement or move interaction to containing view
-            }
+        
+        Button {
+            dismissScreen()
+        } label: {
+            Image(systemName: "arrow.left")
+                .font(.largeTitle)
+                .foregroundStyle(Color.gray.opacity(0.9))
+            
+               
+        }
+
+        
+        
+       
+            
     }
 }
 
