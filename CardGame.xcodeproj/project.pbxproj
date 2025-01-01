@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -30,6 +30,10 @@
 		198698352C36A65A00D94F58 /* QuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionModel.swift; sourceTree = "<group>"; };
 		19D0966C2CFBAE6400D2FC6B /* DismisButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismisButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		198C29842D25552100A4EB4C /* Tools */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Tools; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		198698172C35DFAA00D94F58 /* Frameworks */ = {
@@ -61,6 +65,7 @@
 		1986981C2C35DFAA00D94F58 /* CardGame */ = {
 			isa = PBXGroup;
 			children = (
+				198C29842D25552100A4EB4C /* Tools */,
 				198698322C35EF1100D94F58 /* Model */,
 				1986982F2C35DFF300D94F58 /* Views */,
 				1986981D2C35DFAA00D94F58 /* CardGameApp.swift */,
@@ -112,6 +117,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				198C29842D25552100A4EB4C /* Tools */,
 			);
 			name = CardGame;
 			productName = CardGame;

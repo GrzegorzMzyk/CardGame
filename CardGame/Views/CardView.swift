@@ -10,6 +10,7 @@ import SwiftUI
 struct CardView: View {
     @StateObject private var viewModel = QuestionViewModel()
     @State var gameSheetIsPresented = false
+   
     
     var body: some View {
         ZStack{
@@ -17,20 +18,42 @@ struct CardView: View {
                 .ignoresSafeArea()
             VStack(spacing:30) {
                 Button {
+                    HapticsManager.instance.notification(type: .success)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                         gameSheetIsPresented = true
                     }
                 } label: {}
                     .buttonStyle(CustomButtonStyle())
                 
-                Toggle("Hard Mode", isOn: $viewModel.filterOnlyEasyQuestions)
-                    .toggleStyle(SwitchToggleStyle(tint: .red))
-                    .padding()
-                    .foregroundStyle(Color.black)
-                    .background(Color.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 40))
-                    .padding(.horizontal, 120)
+               
+                ShakeManager {
+                    viewModel.filterOnlyEasyQuestions.toggle()
+                }
+                .frame(width: 100, height: 100)
+                .overlay {
+                    Toggle(isOn: $viewModel.filterOnlyEasyQuestions,
+                           label: {
+                        VStack{
+                            Text("Hard Mode")
+                                .fontWeight(.bold)
+                            Text("shake to \(viewModel.filterOnlyEasyQuestions ? "off" : "on")")
+                                .fontWeight(.light)
+                                .font(.subheadline)
+                        }
+                    }
+                    )
+                        .toggleStyle(SwitchToggleStyle(tint: .red))
+                        .padding()
+                        .foregroundStyle(Color.black)
+                        .background(Color.white)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .frame(width: 250, height: 150)
+                     
+                }
+              
+              
             }
+          
         }
         .background(Color.backgroundCard.ignoresSafeArea())
         .fullScreenCover(isPresented: $gameSheetIsPresented) {

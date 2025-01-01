@@ -28,7 +28,7 @@ struct QuestionView: View {
                                     dragOffset = gesture.translation
                                 }
                                 .onEnded { gesture in
-                                    if gesture.translation.height > 100 {
+                                    if gesture.translation.height < 100 {
                                         // Gdy przeciągnięcie jest wystarczające
                                         withAnimation {
                                             dragOffset = .zero
@@ -49,6 +49,7 @@ struct QuestionView: View {
                         })
                         .animation(.bouncy, value: dragOffset) // Animacja powrotu
                 }
+                
             }
             .padding()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
