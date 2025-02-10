@@ -14,7 +14,7 @@ struct DismisButton: View {
         Button {
             dismissScreen()
         } label: {
-            Image(systemName: "arrow.left")
+            Image(systemName: "chevron.left")
                 .font(.largeTitle)
                 .foregroundStyle(Color.gray.opacity(0.9))
             
