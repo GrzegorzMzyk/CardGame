@@ -16,7 +16,7 @@ struct QuestionsModel: Identifiable, Hashable {
 }
 
 class QuestionViewModel: ObservableObject {
-
+    
     var questions: [QuestionsModel] = [
         
         QuestionsModel(
@@ -1126,14 +1126,14 @@ class QuestionViewModel: ObservableObject {
         )
         ,
     ]
-
+    
     @Published var currentQuestion: QuestionsModel?
     @Published var filterOnlyEasyQuestions: Bool = false
-
+    
     init() {
         loadNextQuestion()
     }
-
+    
     func loadNextQuestion() {
         let filteredQuestions = filterQuestions()
         guard !filteredQuestions.isEmpty
@@ -1143,13 +1143,21 @@ class QuestionViewModel: ObservableObject {
         }
         currentQuestion = filteredQuestions.randomElement()
     }
-
-    private func filterQuestions() -> [QuestionsModel] {
-        if !filterOnlyEasyQuestions {
-            let easyQuestions = questions.filter { !$0.isHard }
-            return easyQuestions.isEmpty ? questions : easyQuestions
-        } else {
-            return questions
-        }
+    
+    
+    func filterQuestions() -> [QuestionsModel] {
+        return filterOnlyEasyQuestions ?   questions : getEasyQuestions()
     }
+
+    func getEasyQuestions() -> [QuestionsModel] {
+        let easyQuestions = questions.filter { isEasyQuestion($0) }
+        return easyQuestions.isEmpty ? questions : easyQuestions
+    }
+
+    func isEasyQuestion(_ question: QuestionsModel) -> Bool {
+        return !question.isHard
+    }
+  
 }
+
+
